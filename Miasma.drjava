@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<drjava version="drjava-20140826-r5761">
+  <project autorefresh="true" build="bin/" main="MiasmaApp" root="src/" work="src/">
+    <createjar file=""/>
+    <source>
+      <file active="true" name="NodeMenu.java" package="" timestamp="29-May-2016 23:48:07">
+        <select from="2714" to="2714"/>
+        <scroll column="922" row="0"/>
+      </file>
+      <file name="MiasmaApp.java" package="" timestamp="28-May-2016 16:42:47">
+        <select from="2714" to="2714"/>
+        <scroll column="922" row="0"/>
+      </file>
+      <file name="MaterialButtonUI.java" package="" timestamp="05-Sep-2015 22:53:05">
+        <select from="2714" to="2714"/>
+        <scroll column="922" row="0"/>
+      </file>
+      <file name="MaterialButton.java" package="" timestamp="05-Sep-2015 22:52:32">
+        <select from="2714" to="2714"/>
+        <scroll column="922" row="0"/>
+      </file>
+      <file name="DropShadowBorder.java" package="" timestamp="06-Sep-2015 13:29:28">
+        <select from="2714" to="2714"/>
+        <scroll column="922" row="0"/>
+      </file>
+      <file name="MaterialToggleButton.java" package="" timestamp="28-May-2016 23:22:23">
+        <select from="2714" to="2714"/>
+        <scroll column="922" row="0"/>
+      </file>
+      <file name="MaterialUIMovement.java" package="" timestamp="29-May-2016 17:20:04">
+        <select from="2714" to="2714"/>
+        <scroll column="922" row="0"/>
+      </file>
+      <file name="Question.java" package="" timestamp="29-May-2016 18:16:20">
+        <select from="2714" to="2714"/>
+        <scroll column="922" row="0"/>
+      </file>
+      <file name="ProgramState.java" package="" timestamp="29-May-2016 18:37:43">
+        <select from="2714" to="2714"/>
+        <scroll column="922" row="0"/>
+      </file>
+      <file name="GUIState.java" package="" timestamp="29-May-2016 21:10:54">
+        <select from="2714" to="2714"/>
+        <scroll column="922" row="0"/>
+      </file>
+      <file name="QuestionPanel.java" package="" timestamp="29-May-2016 21:57:32">
+        <select from="2714" to="2714"/>
+        <scroll column="922" row="0"/>
+      </file>
+      <file name="EditPanel.java" package="" timestamp="29-May-2016 22:16:23">
+        <select from="2714" to="2714"/>
+        <scroll column="922" row="0"/>
+      </file>
+      <file name="MiasmaFrame.java" package="" timestamp="29-May-2016 22:17:44">
+        <select from="2714" to="2714"/>
+        <scroll column="922" row="0"/>
+      </file>
+      <file name="DragAndDropListener.java" package="" timestamp="29-May-2016 22:56:10">
+        <select from="2714" to="2714"/>
+        <scroll column="922" row="0"/>
+      </file>
+      <file name="Graph.java" package="" timestamp="29-May-2016 23:06:52">
+        <select from="2714" to="2714"/>
+        <scroll column="922" row="0"/>
+      </file>
+      <file name="GUITheme.java" package="" timestamp="29-May-2016 23:16:23">
+        <select from="2714" to="2714"/>
+        <scroll column="922" row="0"/>
+      </file>
+      <file name="GridPanel.java" package="" timestamp="29-May-2016 23:25:59">
+        <select from="2714" to="2714"/>
+        <scroll column="922" row="0"/>
+      </file>
+    </source>
+    <included/>
+    <excluded/>
+    <collapsed/>
+    <classpath/>
+    <breakpoints/>
+    <watches/>
+    <bookmarks/>
+    <preferences/>
+  </project>
+</drjava>
