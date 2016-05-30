@@ -26,7 +26,13 @@ public class NodeMenu extends JPopupMenu implements ActionListener {
       }
     }
     else {
-      String text = ((JMenuItem)(((JComponent)(ae.getSource ())).getParent ())).getText ();//most disgusting thing i've ever written in my life
+      JMenuItem item = (JMenuItem) ae.getSource();
+      JPopupMenu popup = (JPopupMenu) item.getParent();
+      JMenu menu = (JMenu) popup.getInvoker();
+      
+      String text = menu.getText ();
+      
+      System.out.println (item.getText ());
       
       if (text.equals ("Add Edge To")) {
         stateManager.getGraph ().addEdge (node, Integer.parseInt (ae.getActionCommand ()));

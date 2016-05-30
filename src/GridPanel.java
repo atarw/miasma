@@ -10,8 +10,8 @@ public class GridPanel extends JPanel {
   
   private boolean drag = false;
   
-  private static final int GRID_SIZE_Y = 13;
-  private static final int GRID_SIZE_X = GRID_SIZE_Y * 2;
+  private static final int GRID_SIZE_Y = 20;
+  private static final int GRID_SIZE_X = GRID_SIZE_Y;//GRID_SIZE_Y * 2;
   
   private int SIZE = getSize ().getHeight () > getSize ().getWidth () ? (int) (getSize ().getWidth () / (GRID_SIZE_X + 2)) : (int) (getSize ().getHeight () / (GRID_SIZE_Y + 2));
   private int SPACE = SIZE / 2;
@@ -30,6 +30,11 @@ public class GridPanel extends JPanel {
   public void paintComponent (Graphics g) {
     super.paintComponent (g);
     
+    // RenderingHints h = new RenderingHints (RenderingHints.KEY_TEXT_ANTIALIASING,
+    // RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+    
+    //((Graphics2D) g).setRenderingHints (h);
+    
     if (getSize ().getHeight () > getSize ().getWidth ()) {
       SIZE = (int) (getSize ().getWidth () / (GRID_SIZE_X + 2));
     }
@@ -40,6 +45,7 @@ public class GridPanel extends JPanel {
     SPACE = SIZE / 2;
     BOARD_LENGTH_X = SPACE * 2 + SIZE * GRID_SIZE_X;
     BOARD_LENGTH_Y = SPACE * 2 + SIZE * GRID_SIZE_Y;
+    
     V_BOARD_GAP = (int) ((getSize ().getHeight () - BOARD_LENGTH_Y) / 2);
     H_BOARD_GAP = (int) ((getSize ().getWidth () - BOARD_LENGTH_X) / 2);
     
@@ -51,9 +57,9 @@ public class GridPanel extends JPanel {
   }
   
   public void drawGrid (Graphics g) {
-    boolean color = false;
+    //boolean color = false;
     
-    g.setColor (lookManager.getGUITheme ().getActiveBorderlessButtonBackground ());
+    g.setColor (lookManager.getGUITheme ().getActiveTextbox ());
     g.fillRect (H_BOARD_GAP, V_BOARD_GAP, BOARD_LENGTH_X, BOARD_LENGTH_Y);//0, 0
     
     g.setColor (lookManager.getGUITheme ().getBorderlessButtonText ());
@@ -73,23 +79,23 @@ public class GridPanel extends JPanel {
       for (int y = 0; y < GRID_SIZE_Y; y++) {
         //location = stateManager.getLocation ((x), (GRID_SIZE - 1 - y));
         
-        drawSquare (g, !color, H_BOARD_GAP + SPACE + x * SIZE, V_BOARD_GAP + SPACE + y * SIZE/*, location*/);
-        color = !color;
+        drawSquare (g, /*!color,*/ H_BOARD_GAP + SPACE + x * SIZE, V_BOARD_GAP + SPACE + y * SIZE/*, location*/);
+        //color = !color;
         
         // if (Board.isValidLocation (location) && stateManager.getPieceAt (location) != null && (location != listener.getPressedLocation () || location == listener.getPressedLocation () && !drag)) {
         //  drawPiece (g, H_BOARD_GAP + x * SIZE + SPACE, V_BOARD_GAP + y * SIZE + SPACE, lookManager.getBoardTheme ().getImg (stateManager.getPieceAt (location)));
         //}
       }
       
-      if (GRID_SIZE_Y % 2 == 0) {
-        color = !color;
-      }
+      // if (GRID_SIZE_Y % 2 == 0) {
+      //   color = !color;
+      // }
     }
   }
   
-  private void drawSquare (Graphics g, boolean isLight, int x, int y/*, int location*/) {
+  private void drawSquare (Graphics g /*, boolean isLight*/, int x, int y/*, int location*/) {
     //g.setColor (highlightedSquares.contains (location) ? lookManager.getBoardTheme ().getHighlight () : isLight ? lookManager.getBoardTheme ().getLight () : lookManager.getBoardTheme ().getDark ());
-    g.setColor (isLight ? lookManager.getGUITheme ().getInactiveBorderlessButtonBackground () : lookManager.getGUITheme ().getActiveBorderlessButtonBackground ());
+    g.setColor (/*isLight ?*/ lookManager.getGUITheme ().getInactiveBorderlessButtonBackground () /*: lookManager.getGUITheme ().getActiveBorderlessButtonBackground ()*/);
     g.fillRect (x, y, SIZE, SIZE);
     
     if (stateManager.getGraph ().isNode (getGridLocation (x, y))) {
@@ -103,8 +109,8 @@ public class GridPanel extends JPanel {
         }
       }
       
-      g.setColor (lookManager.getGUITheme ().getNodeColor ());
-      g.fillOval (x + SIZE / 4, y + SIZE / 4, SIZE / 2, SIZE / 2);
+      g.setColor (stateManager.getGraph ().isInfectionPoint (getGridLocation (x, y)) ? lookManager.getGUITheme ().getInfectedNodeColor () : lookManager.getGUITheme ().getDefaultNodeColor ());
+      g.fillOval (x, y, SIZE, SIZE);
       
       repaint ();
     }
