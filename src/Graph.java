@@ -56,6 +56,13 @@ public class Graph {
     return infectionPoints.contains (a);
   }
   
+  public int getPopulation (int a) {
+    if (isNode (a)) {
+      return population.get (a);
+    }
+    return -1;
+  }
+  
   public void setPopulation (int a, int pop) {
     if (isNode (a)) {
       population.put (a, pop);

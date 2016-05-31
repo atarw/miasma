@@ -98,19 +98,27 @@ public class GridPanel extends JPanel {
     g.setColor (/*isLight ?*/ lookManager.getGUITheme ().getInactiveBorderlessButtonBackground () /*: lookManager.getGUITheme ().getActiveBorderlessButtonBackground ()*/);
     g.fillRect (x, y, SIZE, SIZE);
     
-    if (stateManager.getGraph ().isNode (getGridLocation (x, y))) {
+    int node = getGridLocation (x, y);
+    
+    if (stateManager.getGraph ().isNode (node)) {
       g.setColor (lookManager.getGUITheme ().getTextboxText ());
       
-      for (int i : stateManager.getGraph ().getNeighbours (getGridLocation (x, y))) {
-        System.out.println (i + " " + (i % GRID_SIZE_X) + " " + (i / GRID_SIZE_Y));
-        
-        if (i > getGridLocation (x, y)) {
-          g.drawLine (x + SIZE / 4, y + SIZE / 4, i % GRID_SIZE_X, i / GRID_SIZE_Y);
+      for (int i : stateManager.getGraph ().getNeighbours (node)) {
+        if (x < i % GRID_SIZE_X && i > node && y < i / GRID_SIZE_Y) {
+          g.drawLine (x + SIZE / 4, y + SIZE / 4,
+                      H_BOARD_GAP + SPACE + SIZE * (i % GRID_SIZE_X) + SIZE / 4, V_BOARD_GAP + SPACE + SIZE * (i / GRID_SIZE_Y) - SIZE / 4);
+        }
+        else {
+          g.drawLine (x + SIZE / 4, y + SIZE / 4,
+                      H_BOARD_GAP + SPACE + SIZE * (i % GRID_SIZE_X) + SIZE / 4, V_BOARD_GAP + SPACE + SIZE * (GRID_SIZE_Y - i / GRID_SIZE_Y) - SIZE / 4); 
         }
       }
       
-      g.setColor (stateManager.getGraph ().isInfectionPoint (getGridLocation (x, y)) ? lookManager.getGUITheme ().getInfectedNodeColor () : lookManager.getGUITheme ().getDefaultNodeColor ());
+      g.setColor (stateManager.getGraph ().isInfectionPoint (node) ? lookManager.getGUITheme ().getInfectedNodeColor () : lookManager.getGUITheme ().getDefaultNodeColor ());
       g.fillOval (x, y, SIZE, SIZE);
+      
+      g.setColor (lookManager.getGUITheme ().getCard ());
+      g.drawString (Integer.toString (stateManager.getGraph ().getPopulation (node)), x + SIZE / 2, y + SIZE / 2);
       
       repaint ();
     }

@@ -47,6 +47,7 @@ public class DragAndDropListener implements MouseListener, MouseMotionListener {
   
   public void mouseMoved (MouseEvent me) {
     lookManager.getGridPanel ().setComponentPopupMenu (new NodeMenu (lookManager.getGridPanel ().getGridLocation (me.getX (), me.getY ())));
+    System.out.println (me.getX () + " " + me.getY ());
   }
   
   public DragAndDropListener () {

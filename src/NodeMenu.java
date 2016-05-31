@@ -81,7 +81,7 @@ public class NodeMenu extends JPopupMenu implements ActionListener {
     }
     
     for (int i = 0; i < items.length; i++) {
-      if (!stateManager.getGraph ().isNode (node) && i != 0 || stateManager.getGraph ().isNode (node) && (i == 0 || i == 4 && stateManager.getGraph ().getConnectivity (node) <= 0)) {
+      if (!stateManager.getGraph ().isNode (node) && i != 0 || stateManager.getGraph ().isNode (node) && (i == 0 || i == 4 && stateManager.getGraph ().getConnectivity (node) <= 0) || i == 3 && stateManager.getGraph ().getConnectivity (node) + 1 == stateManager.getGraph ().map.size ()) {
         items [i].setEnabled (false);
       }
       
